@@ -1,0 +1,24 @@
+Scanner e = new Scanner(System.in);
+        
+        //  Declaração das variáveis
+        int cont1 =0, cont2 = 1, cont3;
+        int fibonacci[] = new int [10];
+        
+        //  Preenchimento dos primeiros valores
+        System.out.println("Digite o primeiro valor");
+        fibonacci[cont1] = e.nextInt();
+        
+        System.out.println("Digite o segundo valor");
+        fibonacci[cont2] = e.nextInt();
+        
+        //  Cálculo dos valores seguinte
+        for (cont3 = 2; cont3 <=9; cont3++){
+            fibonacci[cont3] = fibonacci[cont1] + fibonacci[cont2];
+            cont2++;
+            cont1++;
+        }
+        
+        //  Impressão dos resultados
+        for (cont3 = 0; cont3 <=9; cont3++){
+            System.out.println(fibonacci[cont3]);
+        }
