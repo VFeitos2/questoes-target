@@ -1,0 +1,18 @@
+//  Seleção da palavra e criação de variável
+        String espelho = "Vinicius";
+        
+        //  Variável que ira espelhar texto original
+        String ohlepse [] = new String [8];
+        int x, y;
+        
+        //  Coleta das letras
+        for(x = 7; x>=0; x--){
+            y = x+1;
+            ohlepse[x] = espelho.substring(x,y);
+        }
+        
+        //  Impressão da palavra
+        for(x = 7; x>=0; x--){
+            y = x+1;
+            System.out.print(ohlepse[x] = espelho.substring(x,y));
+        }
