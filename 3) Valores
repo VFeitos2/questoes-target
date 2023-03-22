@@ -1,0 +1,120 @@
+Scanner e = new Scanner(System.in);
+       
+       //   Vetor com os dias do mês
+       double valorDia [] = new double [30]; 
+       
+       //   Variáveis comuns
+       int cont1, repetir, semana, dia, maiorDia = 0, menorDia = 0, cont2 =0, cont3 = 0;
+       double menorValor = 0, maiorValor = 0, total = 0, media;
+       
+       //   Preenchimento automatico
+       for (int x = 0; x<=29; x++){
+           valorDia[x] = 0;
+       }
+       
+       //   Menu de seleção de dias      
+       do{
+           System.out.println("Digite o código da semana a preencher");
+            System.out.println("Semana 1, dias 1 a 7");
+            System.out.println("Semana 2, dias 8 a 14");
+            System.out.println("Semana 3, dias 15 a 21");
+            System.out.println("Semana 4, dias 22 a 30");
+       
+            semana = e.nextInt();
+            
+           //   Switch para preenchimento
+           switch (semana) {
+           case 1:
+               dia = 1;
+               
+               //   Repetição para captar valores
+               for (cont1 = 0; cont1<= 6; cont1++){
+                   System.out.println("Digite o valor do dia " + dia);
+                   valorDia[cont1] = e.nextInt();
+                   dia++;
+               }
+               break;
+            case 2:
+               dia = 8;
+               
+               //   Repetição para captar valores
+               for (cont1 = 7; cont1<= 13; cont1++){
+                   System.out.println("Digite o valor do dia " + dia);
+                   valorDia[cont1] = e.nextInt();
+                   dia++;
+               }
+               break;
+            case 3:
+               dia = 15;
+               
+               //   Repetição para captar valores
+               for (cont1 = 14; cont1<= 20; cont1++){
+                   System.out.println("Digite o valor do dia " + dia);
+                   valorDia[cont1] = e.nextInt();
+                   dia++;
+               }
+               break;
+            case 4:
+               dia = 22;
+               
+               //   Repetição para captar valores
+               for (cont1 = 21; cont1<= 29; cont1++){
+                   System.out.println("Digite o valor do dia " + dia);
+                   valorDia[cont1] = e.nextInt();
+                   dia++;
+               }
+               break;
+       }
+        
+         // Menu de repetição do Do While
+         System.out.println("Deseja digitar outra semana?");
+         System.out.println("Digite 1 para sim");
+         repetir = e.nextInt();
+       } while (repetir == 1);
+       
+       //   Exibição dos valores preenchidos
+       for (cont1 = 0; cont1<=29; cont1++){
+           if(valorDia[cont1] != 0){
+               System.out.println(valorDia[cont1]);
+           }
+       }
+       
+       //   Cálculo de menor valor
+       menorValor = valorDia[0];
+       for (cont1 = 0; cont1<=29; cont1++){
+           if (valorDia[cont1] <= menorValor && valorDia[cont1]!= 0){
+               menorValor = valorDia[cont1];
+               menorDia = cont1 + 1;
+           } 
+       }
+       
+      //    Cálculo do maior valor
+       for (cont1 = 0; cont1<=29; cont1++){
+           if (valorDia[cont1] >= maiorValor){
+               maiorValor = valorDia[cont1];
+               maiorDia = cont1 + 1;
+           } 
+       }
+       
+       //   Soma dos valores
+       for (cont1 = 0; cont1<=29; cont1++){
+           if (valorDia[cont1] != 0){
+               cont2 = cont2 + 1;
+               total = total + valorDia[cont1];
+           } 
+       }
+       //   Média
+       media = total/cont2;
+       
+       //   Dias acima da média
+       for (cont1 = 0; cont1<=29; cont1++){
+           if (valorDia[cont1] >= media){
+               cont3 = cont3 + 1;
+           } 
+       }
+       
+       
+       System.out.println("O menor valor de faturamento foi de R$ " + menorValor + "no dia " + menorDia
+       + " e o maior valor é de R$ " + maiorValor + " no dia " + maiorDia);
+       
+       System.out.println("Houveram " + cont3 + " dias acima da média");
